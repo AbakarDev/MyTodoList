@@ -2,34 +2,38 @@ import React, { useState } from 'react';
 import { PlusCircle, Calendar, Tag, AlertCircle } from 'lucide-react';
 
 const TodoForm = ({ addTodo }) => {
-  const [text, setText] = useState("");
-  const [priority, setPriority] = useState("moyenne");
-  const [dueDate, setDueDate] = useState("");
-  const [category, setCategory] = useState("");
-
+  const [text, setText] = useState('');
+  const [priority, setPriority] = useState('moyenne');
+  const [category, setCategory] = useState('');
+  const [dueDate, setDueDate] = useState('');
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (text.trim() === "") return;
-
+    
+    if (text.trim() === '') {
+      return;
+    }
+    
     const newTodo = {
       id: Date.now(),
       text: text.trim(),
       completed: false,
       priority,
+      category: category || null,
       dueDate: dueDate || null,
-      category:category || null,
       createdAt: new Date().toISOString(),
     };
-
+    
     addTodo(newTodo);
-    setText("");
-    setPriority("moyenne");
-    setDueDate("");
-    setCategory("");
+    setText('');
+    setCategory('');
+    setDueDate('');
+    setPriority('moyenne');
   };
-
-  const categories = ["Travail", "Personnel", "Courses", "Santé", "loisirs","éducation"];
- return (
+  
+  const categories = ['travail', 'personnel', 'courses', 'santé', 'loisirs', 'éducation'];
+  
+  return (
     <div className="card mb-8">
       <div className="flex items-center mb-6">
         <div className="p-2 bg-gradient-to-r from-primary to-accent rounded-lg mr-3">

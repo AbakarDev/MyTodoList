@@ -2,15 +2,14 @@ import React from 'react';
 import TodoItem from './TodoItem';
 import { ClipboardCheck, ClipboardX } from 'lucide-react';
 
-
 const TodoList = ({ todos, toggleTodo, deleteTodo, editTodo, filter }) => {
   const filteredTodos = todos.filter(todo => {
     if (filter === 'active') return !todo.completed;
     if (filter === 'completed') return todo.completed;
-    if(filter === 'high') return todo.priority === 'haute' && !todo.completed;
+    if (filter === 'high') return todo.priority === 'haute' && !todo.completed;
     return true;
   });
-
+  
   if (filteredTodos.length === 0) {
     return (
       <div className="card text-center py-12">

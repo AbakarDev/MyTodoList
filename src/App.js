@@ -183,7 +183,7 @@ function App() {
 
         <footer className="text-center py-6 text-gray-500 dark:text-gray-400 text-sm border-t border-gray-100 dark:border-gray-800">
           <p>Todo Master © {new Date().getFullYear()} - Organisez votre vie efficacement</p>
-          <p className="mt-1">Créé avec React, Tailwind CSS et ❤️</p>
+          <p className="mt-1">Créé avec React, Tailwind CSS </p>
         </footer>
       </div>
     </div>

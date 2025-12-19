@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
 import { Check, Trash2, Edit2, Star, Calendar, Tag } from 'lucide-react';
 
-const TodoItem = ({ todo, toggleTodo,deleteTodo, editTodo }) => {
+const TodoItem = ({ todo, toggleTodo, deleteTodo, editTodo }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState(todo.text);
-
+  
   const handleEdit = () => {
-    if(isEditing && editedText.trim() !== "") {
-      editTodo(todo.id, editedText.trim());
+    if (isEditing && editedText.trim() !== '') {
+      editTodo(todo.id, editedText);
     }
     setIsEditing(!isEditing);
   };
-
-
+  
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       handleEdit();
     }
   };
-
+  
   const getPriorityColor = (priority) => {
     switch(priority) {
       case 'haute': return 'bg-red-100 text-red-800 border-red-200';
